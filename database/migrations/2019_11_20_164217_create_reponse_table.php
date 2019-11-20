@@ -14,7 +14,9 @@ class CreateReponseTable extends Migration
     public function up()
     {
         Schema::create('reponse', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
+            $table->string('reponse');
+
             $table->timestamps();
         });
     }
