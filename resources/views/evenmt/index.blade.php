@@ -10,6 +10,8 @@
             <br><br>
             <br><br>
             <div class="pull-right">
+                    <a class="btn btn-success" href="{{ url('/#') }}">home</a>
+
                     <br> <a class="btn btn-success" href="{{ route('evenmt.create') }}"> Creer une evenement</a>
             </div>
         </div>

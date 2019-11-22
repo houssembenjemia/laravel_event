@@ -59,6 +59,8 @@
                                 <a href="#functionalities">Functionalités</a>
                                 <a href="#speaker">Réalisateur</a>
                                 <a href="#upcoming">Event Prochain</a>
+                                <a href="{{ url('/evenmt') }}">create event</a>
+
                             </nav>
                             <div class="menu-bar"><span class="lnr lnr-menu"></span></div>
                         </div>
