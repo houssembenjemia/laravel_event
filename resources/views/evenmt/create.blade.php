@@ -70,8 +70,6 @@
                 <td><input type="file" name="image" /></td>
             </div>
         </form>
-
-        
        </div>
                          
 

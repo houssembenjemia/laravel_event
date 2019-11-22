@@ -43,8 +43,9 @@ class EvenementController extends Controller
         'text_desc' => 'required',
         'date_deb' => '',
         'date_fin' => '',
-        'image' => 'required',
         'users_id'=>'',
+        'image' => 'required',
+
 
         ]);
         Evenement::create($request->all());
@@ -82,19 +83,20 @@ class EvenementController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Evenement $evenement
-     * @return \Illuminate\Http\Response
+    //  * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,Evenement $evenement)
+    public function update(Request $request,Evenement $evenmt)
     {
         $request->validate([
             'text_desc' => 'required',
             'date_deb' => '',
             'date_fin' => '',
-            'image' => 'required',
             'users_id'=>'',
+            'image' => 'required',
+
         ]);
   
-        $evenement->update($request->all());
+        $evenmt->update($request->all());
 
         return redirect()->route('evenmt.index')
         ->with('success','evenement updated successfully');
@@ -113,6 +115,11 @@ class EvenementController extends Controller
         return redirect()->route('evenmt.index')
                         ->with('success','Product deleted successfully');
     }
+        /**
+     * Display a listing of the resource.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     */
 
     function upload(Request $request)
     {

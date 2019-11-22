@@ -29,7 +29,7 @@
         @csrf
         @method('PUT')
    
-         <div class="row">
+        <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>description:</strong>
@@ -40,34 +40,52 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>date_deb:</strong>
-                            <input type="text" name="text_desc" value="{{ $evenmt->date_deb }}" class="form-control" placeholder="Name">
+                            <input type="text" name="date_deb" value="{{ $evenmt->date_deb }}" class="form-control" placeholder="Name">
                         </div>
             </div>
             <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>date_fin:</strong>
-                            <input type="text" name="text_desc" value="{{ $evenmt->date_fin }}" class="form-control" placeholder="Name">
+                            <input type="text" name="date_fin" value="{{ $evenmt->date_fin }}" class="form-control" placeholder="Name">
                         </div>
             </div>
   
  
-            <div class="col-xs-12 col-sm-12 col-md-12">
+            {{-- <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>Image:</strong>
                         <textarea class="form-control" style="height:150px" name="image" placeholder="Detail">{{ $evenmt->image }}</textarea>
                     </div>
-             </div>
+             </div> --}}
+
              <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
                         <strong>User id:</strong>
                         <textarea class="form-control" style="height:150px" name="image" placeholder="user">{{ $evenmt->users_id }}</textarea>
                     </div>
              </div>
+
+             <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                        <img src="/images/{{ Session::get('path') }}" width="300" />
+                        <form method="post" action="{{url('/uploadfile')}}" enctype="multipart/form-data">
+                        {{ csrf_field() }}  
+                    
+                    <div class="form-group">
+                        <strong>Selectionner une image</strong>
+                        <td><input type="file" name="image" /></td>
+                    </div>
+                </form>
+               </div>
+                 </div>
+
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
               <button type="submit" class="btn btn-primary">Submit</button>
             </div>
-        </div>
+            
    
+
+        </div>
     </form>
 @endsection
