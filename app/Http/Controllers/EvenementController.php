@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Evenement;
 
 use Illuminate\Http\Request;
 
@@ -13,7 +14,10 @@ class EvenementController extends Controller
      */
     public function index()
     {
-        //
+        $evenements = Evenement::latest()->paginate(5);
+  
+        return view('evenmt.index',compact('evenements'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -23,7 +27,7 @@ class EvenementController extends Controller
      */
     public function create()
     {
-        //
+        return view('evenmt.create');
     }
 
     /**
@@ -34,51 +38,79 @@ class EvenementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+
+        'text_desc' => 'required',
+        'date_deb' => '',
+        'date_fin' => '',
+        'image' => 'required',
+        'users_id'=>'',
+
+        ]);
+        Evenement::create($request->all());
+   
+        return redirect()->route('evenmt.index')
+                        ->with('success','Evenement creer avec succée.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Evenement $evenmt
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Evenement $evenmt)
     {
-        //
+        return view('evenmt.show',compact('evenmt'));
+
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Evenement $evenmt
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Evenement $evenmt)
     {
-        //
+        return view('evenmt.edit',compact('evenmt'));
+
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Evenement $evenement
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Evenement $evenement)
     {
-        //
+        $request->validate([
+            'text_desc' => 'required',
+            'date_deb' => '',
+            'date_fin' => '',
+            'image' => 'required',
+            'users_id'=>'',
+        ]);
+  
+        $evenement->update($request->all());
+
+        return redirect()->route('evenmt.index')
+        ->with('success','evenement updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Evenement  $evenmt
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Evenement $evenmt)
     {
-        //
+        $evenmt->delete();
+  
+        return redirect()->route('evenmt.index')
+                        ->with('success','Product deleted successfully');
     }
 }
