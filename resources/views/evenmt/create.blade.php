@@ -47,18 +47,33 @@
                     <textarea class="form-control" style="height:150px" name="date_fin" placeholder="saisir une date"></textarea>
                 </div>
             </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        {{-- <div class="col-xs-12 col-sm-12 col-md-12">
              <div class="form-group">
                     <strong>Image:</strong>
                     <textarea class="form-control" style="height:150px" name="image" placeholder="imgS"></textarea>
                </div>
-        </div>
+        </div> --}}
         <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                       <strong>User id:</strong>
-                       <textarea class="form-control" style="height:150px" name="users_id" placeholder="user"></textarea>
-                  </div>
-           </div>
+            <div class="form-group">
+                <strong>User id:</strong>
+                <textarea class="form-control" style="height:150px" name="users_id" placeholder="user"></textarea>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                <img src="/images/{{ Session::get('path') }}" width="300" />
+                <form method="post" action="{{url('/uploadfile')}}" enctype="multipart/form-data">
+                {{ csrf_field() }}  
+            
+            <div class="form-group">
+                <strong>Selectionner une image</strong>
+                <td><input type="file" name="image" /></td>
+            </div>
+        </form>
+
+        
+       </div>
+                         
 
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
