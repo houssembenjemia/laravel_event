@@ -12,7 +12,7 @@ class EvenementSeeder extends Seeder
      */
     public function run()
     {
-        factory(Evenement::class,10)->create();
+        factory(Evenement::class,20)->create();
 
     }
 }

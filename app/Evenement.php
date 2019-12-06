@@ -11,4 +11,5 @@ class Evenement extends Model
         'text_desc', 'date_deb','date_fin','users_id','image',
       
     ];
+    // protected $garded :: pour que on peut ajouté dans la table
 }

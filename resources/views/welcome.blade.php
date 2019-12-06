@@ -20,15 +20,22 @@
         <!--
         CSS
         ============================================= -->
-        <link rel="stylesheet" href="css/linearicons.css">=
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link href="css/availability-calendar.css" rel="stylesheet">
-        <link rel="stylesheet" href="css/magnific-popup.css">
-        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="css/bootstrap.css">
-        <link rel="stylesheet" href="css/main.css">
+        <link href="lib/fontawesome-free/css/all.min.css" rel="stylesheet">
+        <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+        <link href="lib/typicons.font/typicons.css" rel="stylesheet">
+        <link href="lib/spectrum-colorpicker/spectrum.css" rel="stylesheet">
+        <link href="lib/select2/css/select2.min.css" rel="stylesheet">
+        <link href="lib/ion-rangeslider/css/ion.rangeSlider.css" rel="stylesheet">
+        <link href="lib/ion-rangeslider/css/ion.rangeSlider.skinFlat.css" rel="stylesheet">
+
+        <!-- azia CSS -->
+        <link rel="stylesheet" href="css/azia.css">
     </head>
-    <body>
+    <body class="az-body">
+            <div class="container">
+                    @yield('core')
+                </div>
+           
             {{-- <div class="flex-center position-ref full-height">
                     @if (Route::has('login'))
                         <div class="top-right links">
@@ -45,7 +52,7 @@
                     @endif --}}
 
         <!-- Start Header Area -->
-        <header class="default-header">
+        <header class="az-header">
             <div class="container">
                 <div class="header-wrap">
                         
@@ -59,7 +66,8 @@
                                 <a href="#functionalities">Functionalités</a>
                                 <a href="#speaker">Réalisateur</a>
                                 <a href="#upcoming">Event Prochain</a>
-                                <a href="{{ url('/evenmt') }}">create event</a>
+                                <a href="#create_event">Create Event</a>
+                                {{-- <a href="{{ url('/evenmt') }}">create event</a> --}}
 
                             </nav>
                             <div class="menu-bar"><span class="lnr lnr-menu"></span></div>
@@ -409,12 +417,20 @@
                     </div>
                 </div>
             </div>
+            
         </section>
         <!-- End events Area -->
-
+        <section class="events-area section-gap" id="create_event">
+                <div class="container">
+                        <div class="container">
+                                @yield('content1')
+                            </div>
+                </div>
+                
+            </section>
 
         <!-- start footer Area -->
-        <footer class="footer-area section-gap">
+        <footer class="az-footer">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3  col-md-12">
@@ -486,16 +502,29 @@
         </footer>
         <!-- End footer Area -->
 
-        <script src="js/vendor/jquery-2.2.4.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-        <script src="js/vendor/bootstrap.min.js"></script>
-        <script src="js/jquery.ajaxchimp.min.js"></script>
-        <script src="js/availability-calendar.js"></script>
-        <script src="js/jquery.sticky.js"></script>
-        <script src="js/parallax.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script src="js/countdown.js"></script>
-        <script src="js/jquery.magnific-popup.min.js"></script>
-        <script src="js/main.js"></script>
+        <script src="new/lib/jquery/jquery.min.js"></script>
+<script src="form/dist/js/moment-with-locales.js"></script>
+<script>
+    var urlsite = "https://www.youyous.fr/crm/crm2/";
+    moment.locale('fr');
+</script>
+
+<script src="new/lib/jquery-ui/ui/widgets/datepicker.js"></script>
+<script src="new/lib/jquery-ui/ui/i18n/datepicker-fr.js"></script>
+
+<script src="new/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="new/lib/ionicons/ionicons.js"></script>
+{#<script src="new/lib/jquery.maskedinput/jquery.maskedinput.js"></script>#}
+{#<script src="new/maskinput/jquery.mask.js"></script>#}
+<script src="new/lib/spectrum-colorpicker/spectrum.js"></script>
+<script src="new/lib/select2/js/select2.min.js"></script>
+<script src="new/lib/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+<script src="new/js/azia.js"></script>
+<script src="https://unpkg.com/ionicons@4.5.0/dist/ionicons.js"></script>
+<script type="text/javascript" src="form/dist/js/main_new.js"></script>
+<script type="text/javascript" src="form/dist/js/signature_new.js"></script>
+
+        
     </body>
 </html>

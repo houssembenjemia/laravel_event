@@ -14,7 +14,7 @@ class EvenementController extends Controller
      */
     public function index()
     {
-        $evenements = Evenement::latest()->paginate(5);
+        $evenements = Evenement::latest()->paginate(10);
   
         return view('evenmt.index',compact('evenements'))
             ->with('i', (request()->input('page', 1) - 1) * 5);

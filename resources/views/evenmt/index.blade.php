@@ -1,6 +1,6 @@
-@extends('evenmt.layout')
+@extends('welcome')
  
-@section('content')
+@section('content1')
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
