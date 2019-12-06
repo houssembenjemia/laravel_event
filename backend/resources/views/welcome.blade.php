@@ -272,7 +272,7 @@
             </ul>
           </li><!-- nav-item -->
           <li class="nav-item">
-                <a  href="#create_event" class="nav-link with-sub"><i class="typcn typcn-edit"></i>Create Event</a>
+                <a  href="/create_event" class="nav-link with-sub"><i class="typcn typcn-edit"></i>Create Event</a>
                 <ul class="nav-sub">
                   <li class="nav-sub-item"><a href="util-background.html" class="nav-sub-link">Background</a></li>
                   <li class="nav-sub-item"><a href="util-border.html" class="nav-sub-link">Border</a></li>
