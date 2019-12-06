@@ -1,0 +1,105 @@
+
+
+<html lang="en">
+  <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+     
+     
+  
+      <title>Connexion</title>
+  
+      <!-- vendor css -->
+      <link href="assets/public/lib/fontawesome-free/css/all.min.css" rel="stylesheet">
+      <link href="assets/public/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+      <link href="assets/public/lib/typicons.font/typicons.css" rel="stylesheet">
+    
+      <!-- azia CSS -->
+      <link rel="stylesheet" href="assets/public/css/azia.css">
+      <style>
+        body, html {
+          height: 100%;
+          margin: 0;
+        }
+        
+        .bg {
+          /* The image used */
+          background-image: url('assets/public/img/EL_AMINE.jpg');
+        
+          /* Full height */
+          height: 100%; 
+         
+          /* Center and scale the image nicely */
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+        </style>
+  </head>
+  <body class="bg">
+  
+
+  <div class="row">
+    <div class="col-lg-8">
+    </div>
+    <div class="col-lg-4">
+
+  
+      <div class="az-signin-wrapper" style="position: absolute;">
+          <div class="az-card-signin">
+              <h1 class="az-logo"><span>My</span>Espace</h1>
+              <div class="az-signin-header">
+                  <h2>Connexion</h2>
+                  <h4>Veuillez Connecter</h4>
+                </div><!-- az-signin-header -->
+<div *ngIf="isLoggedIn; else loggedOut">
+  Logged in as {{roles}}.
+</div>
+
+<ng-template #loggedOut>
+  
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+    
+      <div class="form-group">
+        <label for="username">Nom</label>
+        <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"
+          required />
+        <div *ngIf="f.submitted && username.invalid">
+          <div *ngIf="username.errors.required">Username is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel"
+          required minlength="6" />
+        <div *ngIf="f.submitted && password.invalid">
+          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-az-primary btn-block">Login</button>
+        <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
+          Login failed: {{errorMessage}}
+        </div>
+      </div>
+    </form>
+  </ng-template>
+    <hr>
+    <p>Don't have an account?</p>
+    <a href="signup" class="btn btn-success">Inscription via mon Espace</a>
+    <a href="https://enrolment.supinfo.com/NewCandidate.aspx?lang=fr" class="btn btn-success" target="_blank">Inscription via SupCom</a>
+  
+</div><!-- az-card-signin -->
+</div><!-- az-signin-wrapper -->
+</div>
+</div>
+<script src="assets/public/lib/jquery/jquery.min.js"></script>
+<script src="assets/public/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/public/lib/ionicons/ionicons.js"></script>
+
+<script src="assets/public/js/azia.js"></script>
+</body>
+</html>
