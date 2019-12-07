@@ -56,9 +56,9 @@
                       @csrf
 
                       <div class="form-group row">
-                          {{-- <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                          {{-- <label for="email" class="col-md-3 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
-                          <div class="col-md-6">
+                          <div class="col-md-12">
                               <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus> --}}
 
                               @error('email')
@@ -72,7 +72,7 @@
                     <div class="form-group row">
                       <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
-                      <div class="col-md-6">
+                      <div class="col-md-12">
                           <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                           @error('email')
@@ -86,7 +86,7 @@
                   <div class="form-group row">
                       <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
-                      <div class="col-md-6">
+                      <div class="col-md-12">
                           <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                           @error('password')
@@ -97,8 +97,8 @@
                       </div>
                   </div>
                   <div class="form-group row mb-0">
-                    <div class="col-md-8 offset-md-4">
-                        <button type="submit" class="btn btn-primary">
+                    <div class="col-md-8 offset-md-2">
+                        <button type="submit" class="btn btn-primary col-md-12">
                             {{ __('Login') }}
                         </button>
 
@@ -110,10 +110,9 @@
                     </div>
                 </div>
                     </form>
-                    <hr>
+                  
 <p>Don't have an account?</p>
-<a href="signup" class="btn btn-success">Inscription via mon Espace</a>
-<a href="https://enrolment.supinfo.com/NewCandidate.aspx?lang=fr" class="btn btn-success" target="_blank">Inscription via SupCom</a>
+<a href="register" class="btn btn-success">Inscription via mon Espace</a>
 
                   </div><!-- az-signin-header -->
    
