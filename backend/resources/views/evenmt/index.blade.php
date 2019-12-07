@@ -4,15 +4,15 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h1>Evenement</h1> <br><br> 
+                <h1>Evenement</h1> 
                
             </div>
             <br><br>
             <br><br>
             <div class="pull-right">
-                    <a class="btn btn-success" href="{{ url('/#') }}">home</a>
+                    {{-- <a class="btn btn-success" href="{{ url('/#') }}">home</a> --}}
 
-                    <br> <a class="btn btn-success" href="{{ route('evenmt.create') }}"> Creer une evenement</a>
+                    {{-- <br> <a class="btn btn-success" href="{{ route('evenmt.create') }}"> Creer une evenement</a> --}}
             </div>
         </div>
     </div>

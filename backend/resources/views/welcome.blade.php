@@ -56,7 +56,7 @@
     <div class="az-header shadow-none">
       <div class="container-fluid">
         <div class="az-header-left">
-          <a href="/home" class="az-logo">az<span>i</span>a</a>
+          <a href="#" class="az-logo">az<span>i</span>a</a>
           <a href="#" id="azNavShow" class="az-header-menu-icon d-lg-none"><span></span></a>
         </div><!-- az-header-left -->
         <div class="az-header-center">
@@ -126,7 +126,9 @@
               <a href="#" class="dropdown-item"><i class="typcn typcn-edit"></i> Edit Profile</a>
               <a href="#" class="dropdown-item"><i class="typcn typcn-time"></i> Activity Logs</a>
               <a href="#" class="dropdown-item"><i class="typcn typcn-cog-outline"></i> Account Settings</a>
-              <a href="/home" class="dropdown-item"><i class="typcn typcn-power-outline"></i> Sign Out</a>
+              <a href="/logout" class="dropdown-item" onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();"><i class="typcn typcn-power-outline"></i> Sign Out</a>
+             
             </div><!-- dropdown-menu -->
           </div>
         </div><!-- az-header-right -->
@@ -272,9 +274,9 @@
             </ul>
           </li><!-- nav-item -->
           <li class="nav-item">
-                <a  href="/create_event" class="nav-link with-sub"><i class="typcn typcn-edit"></i>Create Event</a>
+                <a  href="/evenmt" class="nav-link with-sub"><i class="typcn typcn-edit"></i>Create Event</a>
                 <ul class="nav-sub">
-                  <li class="nav-sub-item"><a href="util-background.html" class="nav-sub-link">Background</a></li>
+                  {{-- <li class="nav-sub-item"><a href="util-background.html" class="nav-sub-link">Background</a></li>
                   <li class="nav-sub-item"><a href="util-border.html" class="nav-sub-link">Border</a></li>
                   <li class="nav-sub-item"><a href="util-display.html" class="nav-sub-link">Display</a></li>
                   <li class="nav-sub-item"><a href="util-flex.html" class="nav-sub-link">Flex</a></li>
@@ -283,11 +285,15 @@
                   <li class="nav-sub-item"><a href="util-padding.html" class="nav-sub-link">Padding</a></li>
                   <li class="nav-sub-item"><a href="util-position.html" class="nav-sub-link">Position</a></li>
                   <li class="nav-sub-item"><a href="util-typography.html" class="nav-sub-link">Typography</a></li>
-                  <li class="nav-sub-item"><a href="util-width.html" class="nav-sub-link">Width</a></li>
-                  <li class="nav-sub-item"><a href="util-extras.html" class="nav-sub-link">Extras</a></li>
+                  <li class="nav-sub-item"><a href="util-width.html" class="nav-sub-link">Width</a></li> --}}
+                  <li class="nav-sub-item"><a href="{{ route('evenmt.create') }}" class="nav-sub-link">Creer une evenement</a></li>
+                  <li class="nav-sub-item"><a href="/evenmt" class="nav-sub-link">list Event</a></li>
+
+                  {{-- <a href="/evenmt"> list Event</a> --}}
+
+                  {{-- <a class="nav-sub-link" href="{{ route('evenmt.create') }}"> Creer une evenement</a> --}}
                 </ul>
               </li><!-- nav-item -->
-          <a href="#create_event">Create Event</a>
 
         </ul><!-- nav -->
       </div><!-- container-fluid -->
@@ -297,275 +303,25 @@
       <div class="media media-dashboard">
         <div class="media-body">
           <div class="az-content-header">
-            <div>
-              {{-- <h6 class="az-content-title tx-18 mg-b-5">Event Monitoring Dashboard</h6>
-              <p class="az-content-text tx-13 mg-b-0">Hi, welcome back! Here's your summary of your events.</p> --}}
-            </div>
 
-            <div class="az-content-header-right">
-              <div class="media">
-                <div class="media-body">
-                  <label>Start Date</label>
-                  <h6>Oct 10, 2018</h6>
-                </div><!-- media-body -->
-              </div><!-- media -->
-              <div class="media">
-                <div class="media-body">
-                  <label>End Date</label>
-                  <h6>Oct 23, 2018</h6>
-                </div><!-- media-body -->
-              </div><!-- media -->
-              <div class="media">
-                <div class="media-body">
-                  <label>Event Category</label>
-                  <h6>All Categories</h6>
-                </div><!-- media-body -->
-              </div><!-- media -->
-              <a href="#" class="btn btn-purple">Export</a>
-            </div>
-          </div><!-- az-content-header -->
-
-          <div class="card card-dashboard-twelve mg-b-20">
-            <div class="card-header">
-              {{-- <h6 class="card-title">Sales Overview <span>(All Events)</span></h6> --}}
-
-              <div class="sales-overview">
-                <div class="media">
-                  <div class="media-icon bg-purple"><i class="typcn typcn-ticket"></i></div>
-                  <div class="media-body">
-                    {{-- <label>Tickets Sold</label>
-                    <h4>3,375</h4>
-                    <span><strong>10.5%</strong> of 20,000 Total</span> --}}
-                  </div><!-- media-body -->
-                </div><!-- media -->
-                <div class="media">
-                  <div class="media-icon bg-teal"><i class="typcn typcn-ticket"></i></div>
-                  <div class="media-body">
-                    {{-- <label>Tickets Available</label>
-                    <h4>16,625</h4>
-                    <span><strong>89.5%</strong> of 20,000 Total</span> --}}
-                  </div><!-- media-body -->
-                </div><!-- media -->
-                <div class="media">
-                  <div class="media-icon bg-primary"><i class="typcn typcn-chart-area-outline"></i></div>
-                  <div class="media-body">
-                    {{-- <label>Net Revenue</label>
-                    <h4><span>$</span>20,832</h4>
-                    <span><strong>3.4%</strong> of Sales Avg.</span> --}}
-                  </div><!-- media-body -->
-                </div><!-- media -->
-                <div class="media">
-                  <div class="media-body">
-                    {{-- <label>About Revenue</label>
-                    <p>The total revenue from all events transactions. Depending on your implementation, this can include tax, discounts such as early bird promo. <a href="#">Learn more</a></p> --}}
                   </div><!-- media-body -->
                 </div><!-- media -->
               </div><!-- sales-overview -->
             </div><!-- card-header -->
             <div class="card-body">
-              <div class="chart-legend">
-                {{-- <div><span class="bg-indigo"></span> Tickets Sold</div> --}}
-                {{-- <div><span class="bg-teal"></span> Tickets Available</div> --}}
-              </div><!-- chart-legend -->
-              <div class="chart-wrapper">
-                {{-- <div id="flotChart" class="flot-chart"></div> --}}
-              </div><!-- chart-wrapper -->
+                <section class="events-area section-gap" id="create_event">
+                    <div class="container">
+                            <div class="container">
+                                    @yield('content1')
+                                </div>
+                    </div>
+                    
+                </section>
+            
+         
             </div><!-- card-body -->
-          </div><!-- card -->
 
-          <div class="row row-sm mg-b-20">
-            <div class="col-md-6">
-              <div class="card card-dashboard-fourteen">
-                {{-- <label class="az-content-label">Ticket Sales <span>(This Month)</span></label> --}}
-                <div class="card-body">
-                  <div class="sparkline-wrapper"><span id="sparkline"></span></div>
-                </div>
-                <div class="card-footer row no-gutters">
-                  <div class="col-4">
-                    {{-- <h6>9,800</h6>
-                    <label>Tickets For Sale</label> --}}
-                  </div><!-- col -->
-                  <div class="col-4">
-                    {{-- <h6>7,258</h6>
-                    <label>Tickets Sold</label> --}}
-                  </div><!-- col -->
-                  <div class="col-4">
-                    {{-- <h6>2,542</h6>
-                    <label>Tickets Unsold</label> --}}
-                  </div><!-- col -->
-                </div><!-- card-footer -->
-              </div><!-- card -->
-            </div><!-- col -->
-            <div class="col-md-6 mg-t-20 mg-md-t-0">
-              <div class="card card-dashboard-fourteen">
-                {{-- <label class="az-content-label">Sales Revenue <span>(This Month)</span></label> --}}
-                <div class="card-body">
-                  {{-- <h1><span>$</span>876,899.60</h1>
-                  <label>Total Revenue</label> --}}
-                  <div class="row mg-t-15">
-                    <div class="col-6">
-                      {{-- <h4>1,500</h4>
-                      <span>Events Hosted</span> --}}
-                      {{-- <div class="progress mg-t-5 ht-5"> --}}
-                        {{-- <div class="progress-bar wd-80p" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div> --}}
-                      {{-- </div> --}}
-                      {{-- <small>80% of your goals</small> --}}
-                    </div><!-- col -->
-                    <div class="col-6">
-                      {{-- <h4>991</h4>
-                      <span>Events that earned</span> --}}
-                      {{-- <div class="progress mg-t-5 ht-5"> --}}
-                        {{-- <div class="progress-bar wd-50p bg-teal" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div> --}}
-                      {{-- </div> --}}
-                      {{-- <small>50% of your goals</small> --}}
-                    </div><!-- col -->
-                  </div><!-- row -->
-                </div><!-- card-body -->
-              </div><!-- card -->
-            </div><!-- col -->
-          </div><!-- row -->
-
-          <div class="card card-dashboard-thirteen">
-            {{-- <label class="az-content-label">Events Interest Comparison</label> --}}
-            {{-- <p class="az-content-text">A comparison of people who mark themeselves of their interest based from the date range given above.</p> --}}
-            <div class="row mg-t-20 mg-b-20">
-              <div class="col-lg-4">
-                {{-- <div id="flotPie" class="wd-100p ht-250"></div> --}}
-              </div><!-- col -->
-              <div class="col-lg-8 mg-t-40 mg-lg-t-0">
-                <div class="row">
-                  <div class="col-sm-6">
-                    <div class="media">
-                      <div class="media-icon tx-purple">
-                        {{-- <i class="icon ion-ios-man"></i> --}}
-                      </div>
-                      <div class="media-body">
-                        {{-- <h6>3,890 <span>(26%)</span></h6> --}}
-                        {{-- <label>Interested</label> --}}
-                      </div><!-- media-body -->
-                    </div><!-- media -->
-                    {{-- <span>People who have a ticket reservation of the event is automatically mark as interested.</span> --}}
-                  </div><!-- col -->
-                  <div class="col-sm-6 mg-t-20 mg-sm-t-0">
-                    <div class="media">
-                      <div class="media-icon tx-primary">
-                        {{-- <i class="icon ion-ios-man"></i> --}}
-                      </div>
-                      <div class="media-body">
-                        {{-- <h6>8,005 <span>(39%)</span></h6> --}}
-                        {{-- <label>Going</label> --}}
-                      </div><!-- media-body -->
-                    </div><!-- media -->
-                    {{-- <span>People who have bought a ticket of the event is automatically mark as going.</span> --}}
-                  </div><!-- col -->
-                  <div class="col-sm-6 mg-t-20 mg-lg-t-40">
-                    <div class="media">
-                      <div class="media-icon tx-teal">
-                        {{-- <i class="icon ion-ios-man"></i> --}}
-                      </div>
-                      <div class="media-body">
-                        {{-- <h6>2,120 <span>(20%)</span></h6> --}}
-                        {{-- <label>Maybe</label> --}}
-                      </div><!-- media-body -->
-                    </div><!-- media -->
-                    {{-- <span>People who have viewed the event details and set themeselves as maybe.</span> --}}
-                  </div><!-- col -->
-                  <div class="col-sm-6 mg-t-20 mg-lg-t-40">
-                    <div class="media">
-                      <div class="media-icon tx-gray-500">
-                        {{-- <i class="icon ion-ios-man"></i> --}}
-                      </div>
-                      <div class="media-body">
-                        {{-- <h6>1,613 <span>(15%)</span></h6> --}}
-                        {{-- <label>Not Going</label> --}}
-                      </div><!-- media-body -->
-                    </div><!-- media -->
-                    {{-- <span>People who have viewed the event details and set themeselves as not going.</span> --}}
-                  </div><!-- col -->
-                </div><!-- row -->
-              </div><!-- col -->
-            </div><!-- row -->
-          </div><!-- card -->
-        </div><!-- media-body -->
-
-        <div class="media-aside">
-          <div class="row row-sm">
-            <div class="col-md-6 col-lg-4 col-xl-12">
-              <div class="card card-dashboard-calendar">
-                <h6 class="card-title">Event Calendar</h6>
-                <div class="media az-media-date">
-                  <h1>17</h1>
-                  <div class="media-body">
-                    <p>Nov 2018</p>
-                    <span>Saturday</span>
-                  </div>
-                </div>
-                <div class="card-body"><div class="fc-datepicker"></div></div>
-              </div><!-- card -->
-            </div><!-- col -->
-            <div class="col-md-6 col-lg-8 col-xl-12 mg-t-20 mg-md-t-0 mg-xl-t-20">
-              <div class="card card-dashboard-events">
-                <div class="card-header">
-                  <h6 class="card-title">November 2018</h6>
-                  <h5 class="card-subtitle">Upcoming Events</h5>
-                </div><!-- card-header -->
-                <div class="card-body">
-                  <div class="list-group">
-                    <div class="list-group-item">
-                      <div class="event-indicator bg-purple"></div>
-                      <label>Nov 20 <span>Tuesday</span></label>
-                      <h6>PH World Mall Lantern Festival</h6>
-                      <p><strong>8AM - 4PM</strong> Bay Area, San Francisco</p>
-                      <small><span class="tx-danger">Sold Out</span> (3000 tickets sold)</small>
-
-                      <div class="event-user">
-                        <a href="#" class="az-img-user"><img src="../img/img4.jpg" alt=""></a>
-                        <a href="#" class="az-img-user"><img src="../img/img5.jpg" alt=""></a>
-                        <a href="#" class="az-img-user"><img src="../img/img6.jpg" alt=""></a>
-                        <a href="#" class="az-img-user"><img src="../img/img7.jpg" alt=""></a>
-                        <a href="#">20+ more</a>
-                      </div><!-- az-event-user -->
-                    </div><!-- list-group-item -->
-                    <div class="list-group-item">
-                      <div class="event-indicator bg-primary"></div>
-                      <label>Nov 23 <span>Friday</span></label>
-                      <h6>Asia Pacific Generation Workshop</h6>
-                      <p><strong>8AM - 5PM</strong> Singapore</p>
-                      <small><span class="tx-warning">Sold Out Soon</span> (12 tickets left)</small>
-
-                      <div class="event-user">
-                        <a href="#" class="az-img-user"><img src="../img/img9.jpg" alt=""></a>
-                        <a href="#" class="az-img-user"><img src="../img/img8.jpg" alt=""></a>
-                        <a href="#" class="az-img-user"><img src="../img/img7.jpg" alt=""></a>
-                        <a href="#" class="az-img-user"><img src="../img/img6.jpg" alt=""></a>
-                        <a href="#">20+ more</a>
-                      </div><!-- az-event-user -->
-                    </div><!-- list-group-item -->
-                    <div class="list-group-item">
-                      <div class="event-indicator bg-pink"></div>
-                      <label>Nov 23 <span>Friday</span></label>
-                      <h6>Korea Smart Device Trade Show</h6>
-                      <p><strong>8AM - 5PM</strong> Singapore</p>
-                      <small><span class="tx-success">Free Registration</span> (Limited seats only)</small>
-
-                      <div class="event-user">
-                        <a href="#" class="az-img-user"><img src="../img/img5.jpg" alt=""></a>
-                        <a href="#" class="az-img-user"><img src="../img/img4.jpg" alt=""></a>
-                        <a href="#" class="az-img-user"><img src="../img/img3.jpg" alt=""></a>
-                        <a href="#" class="az-img-user"><img src="../img/img2.jpg" alt=""></a>
-                        <a href="#">20+ more</a>
-                      </div><!-- az-event-user -->
-                    </div><!-- list-group-item -->
-                  </div><!-- list-group -->
-                </div><!-- card-body -->
-              </div><!-- card -->
-            </div><!-- col -->
-          </div><!-- row -->
-        </div><!-- media-aside -->
-      </div><!-- media -->
-
-    </div><!-- az-content -->
-
+      
     <div class="az-footer ht-40">
       <div class="container-fluid pd-t-0-f ht-100p">
         <span>&copy; 2019 Azia Responsive Bootstrap 4 Dashboard Template</span>
@@ -764,14 +520,7 @@
 
       });
     </script>
-              <section class="events-area section-gap" id="create_event">
-                    <div class="container">
-                            <div class="container">
-                                    @yield('content1')
-                                </div>
-                    </div>
-                    
-                </section>
+            
   </body>
 
 <!-- Mirrored from www.bootstrapdash.com/demo/azia/v1.0.0/template/dashboard-four.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 06 Dec 2019 10:24:03 GMT -->
