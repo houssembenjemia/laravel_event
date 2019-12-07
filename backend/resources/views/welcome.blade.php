@@ -126,9 +126,12 @@
               <a href="#" class="dropdown-item"><i class="typcn typcn-edit"></i> Edit Profile</a>
               <a href="#" class="dropdown-item"><i class="typcn typcn-time"></i> Activity Logs</a>
               <a href="#" class="dropdown-item"><i class="typcn typcn-cog-outline"></i> Account Settings</a>
-              <a href="/logout" class="dropdown-item" onclick="event.preventDefault();
-              document.getElementById('logout-form').submit();"><i class="typcn typcn-power-outline"></i> Sign Out</a>
              
+             <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i class="typcn typcn-power-outline"></i> Sign Out</a>
+             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
             </div><!-- dropdown-menu -->
           </div>
         </div><!-- az-header-right -->
