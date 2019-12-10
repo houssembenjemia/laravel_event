@@ -1,58 +1,16 @@
-
-
-<html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-       
-       
-    
-        <title>Connexion</title>
-    
-        <!-- vendor css -->
-        <link href="../lib/fontawesome-free/css/all.min.css" rel="stylesheet">
-    <link href="../lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-    <link href="../lib/typicons.font/typicons.css" rel="stylesheet">
-      
-        <!-- azia CSS -->
-        <link rel="stylesheet" href="../css/azia.css">
-        <style>
-          body, html {
-            height: 100%;
-            margin: 0;
-          }
-          
-          .bg {
-            /* The image used */
-            background-image: url('two.jpg');
-          
-            /* Full height */
-            height: 100%; 
-           
-            /* Center and scale the image nicely */
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-          }
-          </style>
-    </head>
-    <body class="bg">
-
-
-
-            @extends('evenmt.layout')
+@extends('evenmt.layout')
   
-            @section('content')
+@section('content')
             <div class="row">
                 <div class="col-lg-12 margin-tb">
                     <div class="pull-left">
                         <h2>Ajouter Evenement</h2>
-                        <br><br>
+                        <br><br>                        <br><br>
+
                     </div>
                     <br><br>
-                    <div class="pull-right">
+                    <div class="pull-right">                        <br><br>
+
                         <a class="btn btn-primary" href="{{ route('evenmt.index') }}"> Back</a>
                     </div>
                 </div>
@@ -79,18 +37,33 @@
                             <input type="text" name="text_desc" class="form-control" placeholder="Name">
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12">
+                    {{-- <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>date debut:</strong>
                             <textarea class="form-control" style="height:150px" name="date_deb" placeholder="saisir une date"></textarea>
                         </div>
+                    </div> --}}
+                    <div class="form-group">
+                        <label for="date_deb">Date debut</label>
+                        <input type="date" name="date_deb" id="date_deb" class="form-control form-control @error('date_deb') is-invalid @enderror" value="{{ old('date_deb') }}" placeholder="date_deb" aria-describedby="helpIddate_deb">
+                        @error('date_fin')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12">
+                    {{-- <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>date fin</strong>
                                 <textarea class="form-control" style="height:150px" name="date_fin" placeholder="saisir une date"></textarea>
                             </div>
+                        </div> --}}
+                        <div class="form-group">
+                            <label for="date_fin">Date fin</label>
+                            <input type="date" name="date_fin" id="date_fin" class="form-control form-control @error('date_fin') is-invalid @enderror" value="{{ old('date_fin') }}" placeholder="date_fin" aria-describedby="helpIddate_fin">
+                            @error('date_fin')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
                         </div>
+   
                     {{-- <div class="col-xs-12 col-sm-12 col-md-12">
                          <div class="form-group">
                                 <strong>Image:</strong>
@@ -119,6 +92,8 @@
             
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                             <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="reset" value="Vider Champs" class="btn btn-warning">reset</button>
+
                     </div>
                 </div>
                
