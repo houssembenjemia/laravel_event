@@ -113,7 +113,7 @@ class EvenementController extends Controller
         $evenmt->delete();
   
         return redirect()->route('evenmt.index')
-                        ->with('success','Product deleted successfully');
+                        ->with('success','Evenement supprimer avec succes');
     }
         /**
      * Display a listing of the resource.
